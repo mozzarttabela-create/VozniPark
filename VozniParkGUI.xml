@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VozniParkGUI</name>
+    </assembly>
+    <members>
+        <member name="T:VozniParkGUI.Form1">
+            <summary>
+            Glavna forma za upravljanje voznega parka, ki omogoča dodajanje vozil in izračun skupne vrednosti.
+            </summary>
+        </member>
+        <member name="M:VozniParkGUI.Form1.btnDodaj_Click(System.Object,System.EventArgs)">
+            <summary>
+            Dogodek za dodajanje vozila v vozni park. Na podlagi izbranega tipa vozila (avto ali tovornjak) se ustvari ustrezen objekt in doda v vozni park. Po dodajanju se prikaže sporočilo o dodanem vozilu.
+            </summary>
+        </member>
+        <member name="M:VozniParkGUI.Form1.btnSkupnaVrednost_Click(System.Object,System.EventArgs)">
+            <summary>
+            Dogodek za izračun skupne vrednosti vseh vozil v voznem parku. Po kliku na gumb se pokliče metoda IzracunajSkupnoVrednost() razreda VozniPark, ki izračuna skupno vrednost in sproži dogodek VrednostIzracunana, ki prikaže sporočilo z izračunano skupno vrednostjo.
+            </summary>
+        </member>
+        <member name="M:VozniParkGUI.Form1.Park_VoziloDodano(VozniParkLib.Vozilo)">
+            <summary>
+            Dogodek za obdelavo dogodka ob dodajanju vozila v vozni park. Ko se doda novo vozilo, se prikaže sporočilo z znamko dodanega vozila.
+            </summary>
+        </member>
+        <member name="M:VozniParkGUI.Form1.Park_VrednostIzracunana(System.Double)">
+            <summary>
+            Obdelava dogodka ob izračunu vrednosti.
+            </summary>
+        </member>
+        <member name="F:VozniParkGUI.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:VozniParkGUI.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:VozniParkGUI.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:VozniParkGUI.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:VozniParkGUI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:VozniParkGUI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:VozniParkGUI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

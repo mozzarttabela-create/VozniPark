@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VozniParkLib</name>
+    </assembly>
+    <members>
+        <member name="T:VozniParkLib.Avto">
+            <summary>
+            Razred, ki predstavlja avto, ki je vrsta vozila z dodatno lastnostjo števila vrat, ter implementira vmesnik IRegistracija za upravljanje registracije vozila.
+            </summary>
+        </member>
+        <member name="P:VozniParkLib.Avto.SteviloVrat">
+            <summary>
+            Število vrat avtomobila.
+            </summary>
+        </member>
+        <member name="P:VozniParkLib.Avto.RegistrskaStevilka">
+            <summary>
+            Registrska številka vozila.
+            </summary>
+        </member>
+        <member name="P:VozniParkLib.Avto.VeljavnostRegistracije">
+            <summary>
+            Datum veljavnosti registracije.
+            </summary>
+        </member>
+        <member name="M:VozniParkLib.Avto.IzracunVrednostiZDavkom">
+            <summary>
+            Izračuna vrednost avtomobila z davkom.
+            </summary>
+            Vrednost avtomobila z davkom je osnovna cena povečana za davčno stopnjo, plus dodatek 500 € za avto.
+        </member>
+        <member name="M:VozniParkLib.Avto.JeRegistrirano">
+            <summary>
+            Vrne opis avtomobila.
+            </summary>
+            Besedilni opis avtomobila vključuje osnovni opis vozila, ter informacijo, da gre za avto in število vrat.
+        </member>
+        <member name="M:VozniParkLib.Avto.ToString">
+            <summary>
+            Vrne opis avtomobila.
+            </summary>
+            Besedilni opis avtomobila.
+        </member>
+        <member name="T:VozniParkLib.IRegistracija">
+            <summary>
+            Vmesnik za registracijo vozil, ki določa lastnosti in metode, povezane z registracijo vozila.
+            </summary>
+        </member>
+        <member name="P:VozniParkLib.IRegistracija.RegistrskaStevilka">
+            <summary>
+            Registrska številka vozila.
+            </summary>
+        </member>
+        <member name="P:VozniParkLib.IRegistracija.VeljavnostRegistracije">
+            <summary>
+            Datum veljavnosti registracije vozila.
+            </summary>
+        </member>
+        <member name="M:VozniParkLib.IRegistracija.JeRegistrirano">
+            <summary>
+            Preveri, ali je vozilo registrirano.
+            </summary>
+            True ce je datum veljavnosti registracije večji od trenutnega datuma, sicer false.
+        </member>
+        <member name="T:VozniParkLib.Tovornjak">
+            <summary>
+            Razred, ki predstavlja tovornjak, ki je vrsta vozila z dodatno lastnostjo nosilnosti.
+            </summary>
+        </member>
+        <member name="P:VozniParkLib.Tovornjak.Nosilnost">
+            <summary>
+            Nosilnost tovornjaka v tonah.
+            </summary>
+        </member>
+        <member name="M:VozniParkLib.Tovornjak.IzracunVrednostiZDavkom">
+            <summary>
+            Izračuna vrednost tovornjaka z davkom.
+            </summary>
+            Vrednost tovornjaka z davkom je osnovna cena povečana za davčno stopnjo, plus dodatek glede na nosilnost (100 € na tono).
+        </member>
+        <member name="M:VozniParkLib.Tovornjak.ToString">
+            <summary>
+            Vrne opis tovornjaka.
+            </summary>
+            Besedilno opis tovornjaka vključuje osnovni opis vozila, ter informacijo, da gre za tovornjak in njegovo nosilnost.
+        </member>
+        <member name="P:VozniParkLib.Vozilo.Cena">
+            <summary>
+            Cena vozila ne sme biti negativna. Če je poskušamo nastaviti na negativno vrednost, se cena ne spremeni.
+            </summary>
+        </member>
+        <member name="M:VozniParkLib.Vozilo.IzracunVrednostiZDavkom">
+            <summary>
+            Izračuna vrednost vozila z davkom.
+            </summary>
+            Vrednost vozila z davkom je osnovna cena povečana za davčno stopnjo, plus dodatek glede na tip vozila (avto: 500 €, tovornjak: 100 € na tono nosilnosti).
+        </member>
+        <member name="M:VozniParkLib.Vozilo.ToString">
+            <summary>
+            Vrne osnovni opis vozila.
+            </summary>
+            Besedilni opis vozila vključuje ID, znamko in osnovno ceno brez davka.
+        </member>
+        <member name="T:VozniParkLib.VozniPark">
+            <summary>
+            Razred za upravljanje voznega parka, ki vsebuje seznam vozil in omogoča dodajanje vozil, izračun skupne vrednosti ter dostop do posameznih vozil preko indeksa.
+            </summary>
+        </member>
+        <member name="M:VozniParkLib.VozniPark.DodajVozilo(VozniParkLib.Vozilo)">
+            <summary>
+            Doda vozilo v vozni park.
+            </summary>
+            Vozilo zadnje se doda v seznam vozil, nato pa se sproži dogodek VoziloDodano, ki obvesti o dodanem vozilu.
+        </member>
+        <member name="P:VozniParkLib.VozniPark.Item(System.Int32)">
+            <summary>
+            Indekser za dostop do vozila po indeksu.
+            </summary>
+            Indeks vozila se začne z 0. Če je indeks izven meja seznama, se vrže izjema IndexOutOfRangeException.
+            Vozilo na podlagi indeksa se vrne, če je indeks veljaven. Če ni, se vrže izjema.
+        </member>
+        <member name="P:VozniParkLib.VozniPark.SteviloVozil">
+            <summary>
+            Vrne število vozil v voznem parku.
+            </summary>
+        </member>
+        <member name="M:VozniParkLib.VozniPark.IzracunajSkupnoVrednost">
+            <summary>
+            Izračuna skupno vrednost vseh vozil.
+            </summary>
+            Skupnva vrednost se izračuna tako, da se za vsako vozilo v seznamu pokliče metoda IzracunVrednostiZDavkom() in se te vrednosti seštejejo. Po izračunu skupne vrednosti se sproži dogodek VrednostIzracunana, ki obvesti o izračunani skupni vrednosti.
+        </member>
+    </members>
+</doc>
